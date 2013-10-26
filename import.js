@@ -23,8 +23,6 @@ sheet.getRows(1, function(err, row_data) {
 	var tools = [];
 
 	row_data = [row_data[1079], row_data[1080],row_data[1011], row_data[79]];
-	// row_data = [row_data[79],row_data[1079]];
-
 	
 	// take CSV string and return an array of
 	// items with white space trimed from around
@@ -60,8 +58,6 @@ sheet.getRows(1, function(err, row_data) {
 		meta.layout = "project";
 
 		projects.push(meta);
-		// console.log(project);
-		// console.log(meta);
 	});
 
 	require('docpad').createInstance(docpadInstanceConfiguration, function(err, docpadInstance) {
@@ -70,15 +66,19 @@ sheet.getRows(1, function(err, row_data) {
 		}
 
 		var projectsPath = docpadInstance.config.srcPath + '/documents/projects/';
+		var currentDatabase = docpadInstance.getDatabase();
+
+		console.log(currentDatabase);
+
 		projects.forEach(function(project) {
+
+			// make sure project doesn't exist and hasn't changed
+
+
 
 			// convert project data, minus text field, into YAML block
 			// var yamlDoc = yaml.stringify( _.omit(project,['text']) );
 			var yamlDoc = yaml.safeDump(_.omit(project,['text']));
-
-			// console.log(yamlDoc);
-
-			// console.log(yaml.safeDump(_.omit(project,['text'])));
 
 			// Add text field below YAML header.
 			// TODO: Make text a markdown document in Google Docs?
