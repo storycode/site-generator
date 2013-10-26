@@ -1,0 +1,17 @@
+---
+title: "Projects"
+layout: "default"
+inNav: true
+---
+
+<p>list all projects</p>
+
+<ul>
+	<% for page in @getCollection("projects").toJSON(): %>
+		<li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
+			<a href="<%= page.url %>">
+				<%= page.title %>
+			</a>
+		</li>
+	<% end %>
+</ul>

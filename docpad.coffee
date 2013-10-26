@@ -8,6 +8,8 @@ docpadConfig = {
 	collections: 
 		blogPosts: ->
 			@getCollection("html").findAllLive({relativeOutDirPath: 'blog'})
+		projects: ->
+			@getCollection("html").findAllLive({relativeOutDirPath: 'projects'})
 
 	# =================================
 	# Template Data

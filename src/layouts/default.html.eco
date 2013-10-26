@@ -25,7 +25,7 @@
 
 	<header>
 		<ul>
-			<% for page in @getCollection("html").findAll({isPage:true}).toJSON(): %>
+			<% for page in @getCollection("html").findAll({inNav:true}).toJSON(): %>
 				<li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
 					<a href="<%= page.url %>">
 						<%= page.title %>

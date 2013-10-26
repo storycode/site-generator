@@ -1,6 +1,42 @@
 ---
 layout: "default"
 ---
-Project:
+<h1><%- @document.title %></h1>
 
+
+<h5>Organization</h5>
+<ul>
+	<% for v in @document.organizations: %>
+		<li>
+			<a href="#">
+				<%= v %>
+			</a>
+		</li>
+	<% end %>
+</ul>
+
+
+<h5>People</h5>
+<ul>
+	<% for v in @document.people: %>
+		<li>
+			<a href="#">
+				<%= v %>
+			</a>
+		</li>
+	<% end %>
+</ul>
+
+<h5>Tools</h5>
+<ul>
+	<% for v in @document.tools: %>
+		<li>
+			<a href="#">
+				<%= v %>
+			</a>
+		</li>
+	<% end %>
+</ul>
+
+<h5>Text</h5>
 <%- @content %>
