@@ -1,14 +1,12 @@
 /* global _, console */
 var crypto = require('crypto');
 var fs = require('fs');
-var yaml = require('libyaml');
+var yaml = require('js-yaml');
 var GoogleSpreadsheet = require("google-spreadsheet");
 var _ = require("underscore");
 _.str = require('underscore.string');
 var docpadInstanceConfiguration = {};
 var sheet = new GoogleSpreadsheet('0Ang1OfZPG6vydExDNzJncmJwZVlJVkhIOERKTUNnX0E');
-
-var yaml2 = require('js-yaml');
 
 console.log('Downloading spreadsheet');
 sheet.getRows(1, function(err, row_data) {
@@ -76,11 +74,11 @@ sheet.getRows(1, function(err, row_data) {
 
 			// convert project data, minus text field, into YAML block
 			// var yamlDoc = yaml.stringify( _.omit(project,['text']) );
-			var yamlDoc = yaml2.safeDump(_.omit(project,['text']));
+			var yamlDoc = yaml.safeDump(_.omit(project,['text']));
 
 			// console.log(yamlDoc);
 
-			// console.log(yaml2.safeDump(_.omit(project,['text'])));
+			// console.log(yaml.safeDump(_.omit(project,['text'])));
 
 			// Add text field below YAML header.
 			// TODO: Make text a markdown document in Google Docs?
