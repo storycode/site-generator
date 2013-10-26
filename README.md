@@ -1,4 +1,4 @@
-# [DocPad](https://github.com/bevry/docpad) generator for Storyco.de
+# [DocPad](https://github.com/bevry/docpad) generator for [Storyco.de](http://storyco.de)
 Bare essentials for building a modern website with best practices
 
 ## Status
