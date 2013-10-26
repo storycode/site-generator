@@ -22,17 +22,14 @@ docpadConfig = {
 			url: "http://storyco.de"
 
 			# Here are some old site urls that you would like to redirect from
-			oldUrls: [
-				'www.website.com',
-				'website.herokuapp.com'
-			]
+			oldUrls: []
 
 			# The default title of our website
 			title: "Story Code"
 
 			# The website description (for SEO)
 			description: """
-				The definitive compilation of interactive graphics, maps and multimedia pieces.
+				The definitive compilation of interactive graphics, maps and multimedia projects.
 				"""
 
 			# The website keywords (for SEO) separated by commas
