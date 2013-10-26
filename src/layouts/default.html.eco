@@ -19,16 +19,25 @@
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144x144-precomposed.png" />
 </head>
 <body>
-    <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
+	<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+	<![endif]-->
 
-	<header></header>
+	<header>
+		<ul>
+			<% for page in @getCollection("html").findAll({isPage:true}).toJSON(): %>
+				<li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
+					<a href="<%= page.url %>">
+						<%= page.title %>
+					</a>
+				</li>
+			<% end %>
+		</ul>
+	</header>
 	<article>
 		<%- @content %>
 	</article>
 	<footer></footer>
-
 	<%- @getBlock('scripts').add(@getGruntedScripts()).toHTML() %>
 </body>
 </html>

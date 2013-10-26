@@ -1,6 +1,13 @@
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
+	
+	# =================================
+	# Custom collections
+
+	collections: 
+		blogPosts: ->
+			@getCollection("html").findAllLive({relativeOutDirPath: 'blog'})
 
 	# =================================
 	# Template Data
