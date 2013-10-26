@@ -19,7 +19,7 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 			# The production url of our website
-			url: "http://website.com"
+			url: "http://storyco.de"
 
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [
@@ -122,8 +122,22 @@ docpadConfig = {
 			# Prepare
 			docpad = @docpad
 			rootPath = docpad.config.rootPath
+			config = docpad.getConfig()
 			balUtil = require 'bal-util'
 			_ = require 'underscore'
+
+			# Make site map
+			sitemap = []
+			sitemapPath = config.outPath+'/sitemap.txt'
+			siteUrl = config.templateData.site.url
+			
+			# Get all the html files
+			docpad.getCollection('html').forEach (document) ->
+				if document.get('sitemap') isnt false and document.get('write') isnt false and document.get('ignored') isnt true and document.get('body')
+					sitemap.push siteUrl+document.get('url')
+ 
+ 			balUtil.writeFile(sitemapPath, sitemap.sort().join('\n'), next)
+
 
 			# Make sure to register a grunt `default` task
 			command = ["#{rootPath}/node_modules/.bin/grunt", 'default']
