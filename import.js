@@ -19,12 +19,14 @@ sheet.getRows(1, function(err, row_data) {
 	var projects = [];
 
 	// track related project meta. these
-	// turn into top-level sections
+	// turn into top-level sections.
+	// includes: 
+	// people: [],
+	// organizations: [],
+	// categories: [],
+	// tools: []
 	var projectMeta = {
-		people: [],
-		organizations: [],
-		categories: [],
-		tools: []
+
 	};
 
 	row_data = [row_data[1079], row_data[1080],row_data[1011], row_data[79], row_data[1143], row_data[1144], row_data[1145], row_data[1146]];
@@ -47,17 +49,42 @@ sheet.getRows(1, function(err, row_data) {
 		}
 	};
 
-	// take a global list (category, people, etc) and 
-	// a project's related list entries. add project
-	// values to global value, and only keep unqiues.
-	var metaTracker = function(list, listMaker){
-		if (listMaker) {
-			listMaker.forEach(function(v){
-				projectMeta[list].push(v);
+	// take project's related meta info (categories, people, etc)
+	// and generate related list of posts for those enrties.
+	var metaTracker = function(metaCategory, data){
+		if (data) {
+			
+			// create the container obj for the 
+			// category of meta information
+			if (!projectMeta[metaCategory]) {
+				projectMeta[metaCategory] = {};
+			}
+			// console.log(metaCategory);
+			data.forEach(function(v){
+				var slug = _.str.slugify(v);
+				if (!projectMeta[metaCategory][slug]) {
+					projectMeta[metaCategory][slug] = {
+						count: 1,
+						slug: slug,
+						name: v
+					};
+				} else {
+					projectMeta[metaCategory][slug].count ++;
+				}
 			});
-			projectMeta[list] = _.uniq(projectMeta[list]);
 		}
 	};
+
+	// write YAML string to path
+	var writeYaml = function(path, yamlDoc){
+		fs.writeFile(path, yamlDoc, function(err) {
+			if (err) {
+				return console.log(err.stack);
+			}
+			console.log('wrote: ' + path);
+		});
+	};
+
 
 	row_data.forEach(function(project) {
 		var signatureMaker = crypto.createHash('md5');
@@ -83,11 +110,11 @@ sheet.getRows(1, function(err, row_data) {
 		metaTracker('tools', meta.tools);
 		metaTracker('categories', meta.categories);
 
+		// console.log(meta);
 		projects.push(meta);
 	});
 
-	console.log(projectMeta);
-
+	// write out YAML files for docpad
 	require('docpad').createInstance(docpadInstanceConfiguration, function(err, docpadInstance) {
 		if (err) {
 			return console.log(err.stack);
@@ -96,7 +123,8 @@ sheet.getRows(1, function(err, row_data) {
 		// TODO -- make sure project doesn't exist and hasn't changed
 		// var resultCollection = docpadInstance.getCollection('html').findAllLive({relativeOutDirPath: 'projects'});
 
-		var projectsPath = docpadInstance.config.srcPath + '/documents/projects/';
+		var documentPath = docpadInstance.config.srcPath + '/documents/';
+		var projectsPath = documentPath + 'projects/';
 		projects.forEach(function(project) {
 
 			// convert project data, minus text field, into YAML block
@@ -108,11 +136,19 @@ sheet.getRows(1, function(err, row_data) {
 			yamlDoc = '---\n' + yamlDoc + '---\n\n' + project.text;
 
 			// add to docpad project
-			fs.writeFile(projectsPath + project.slug + '.md', yamlDoc, function(err) {
-				if (err) {
-					return console.log(err.stack);
-				}
-				console.log('wrote: ' + projectsPath + project.slug + '.md');
+			writeYaml(projectsPath + project.slug + '.md', yamlDoc);
+		});
+
+		// console.log(projectMeta);
+
+		// write out each meta category's files
+		_.each(projectMeta, function(value, key){
+			var path = documentPath + key + '/';
+			_.each(value, function(obj,slug){
+				var fileName = path + slug + '.md';
+				var yamlDoc = yaml.safeDump(obj);
+				yamlDoc = '---\n' + yamlDoc + '---\n\n';
+				writeYaml(fileName, yamlDoc);
 			});
 		});
 
