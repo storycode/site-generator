@@ -1,7 +1,7 @@
 ---
 title: CSS
 slug: css
-layout: tools
+layout: tool
 count: 1
 ---
 

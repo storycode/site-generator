@@ -16,6 +16,18 @@ docpadConfig = {
 			@getCollection("html").findAllLive({relativeOutDirPath: 'tools'}).
 				on "add", (model) ->
 					model.setMetaDefaults({layout:'tools'});
+		organizations: ->
+			@getCollection("html").findAllLive({relativeOutDirPath: 'organizations'}).
+				on "add", (model) ->
+					model.setMetaDefaults({layout:'organizations'});
+		people: ->
+			@getCollection("html").findAllLive({relativeOutDirPath: 'people'}).
+				on "add", (model) ->
+					model.setMetaDefaults({layout:'people'});
+		categories: ->
+			@getCollection("html").findAllLive({relativeOutDirPath: 'categories'}).
+				on "add", (model) ->
+					model.setMetaDefaults({layout:'categories'});
 
 	# =================================
 	# Template Data
@@ -45,6 +57,28 @@ docpadConfig = {
 				Story Code, StoryCode, multimedia, design, storytelling, journalism, immersive, web developement
 				"""
 
+			metaCategories: {
+				"people":{
+					"slug": "person",
+					"singular": "person",
+					"plural": "people"
+				},
+				"tools":{
+					"slug": "tool",
+					"singular": "tool",
+					"plural": "tools"
+				},
+				"organizations":{
+					"slug": "organization",
+					"singular": "organization",
+					"plural": "organizations"
+				},
+				"categories":{
+					"slug": "category",
+					"singular": "category",
+					"plural": "categories"
+				}
+			}
 
 		# -----------------------------
 		# Helper Functions

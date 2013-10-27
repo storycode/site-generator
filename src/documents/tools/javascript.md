@@ -1,7 +1,7 @@
 ---
 title: JavaScript
 slug: javascript
-layout: tools
+layout: tool
 count: 1
 ---
 

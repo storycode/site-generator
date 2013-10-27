@@ -1,7 +1,7 @@
 ---
 title: Leaflet
 slug: leaflet
-layout: tools
+layout: tool
 count: 1
 ---
 

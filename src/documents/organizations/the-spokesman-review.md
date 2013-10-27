@@ -1,7 +1,7 @@
 ---
 title: "The Spokesman-Review"
 slug: "the-spokesman-review"
-layout: organizations
+layout: organization
 count: 4
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: The Boston Globe
 slug: "the-boston-globe"
-layout: organizations
+layout: organization
 count: 2
 ---
 

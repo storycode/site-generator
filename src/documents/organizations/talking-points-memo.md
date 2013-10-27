@@ -1,7 +1,7 @@
 ---
 title: Talking Points Memo
 slug: "talking-points-memo"
-layout: organizations
+layout: organization
 count: 1
 ---
 

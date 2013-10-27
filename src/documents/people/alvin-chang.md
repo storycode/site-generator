@@ -1,7 +1,7 @@
 ---
 title: Alvin Chang
 slug: "alvin-chang"
-layout: people
+layout: person
 count: 1
 ---
 

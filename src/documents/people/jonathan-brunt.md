@@ -1,7 +1,7 @@
 ---
 title: Jonathan Brunt
 slug: "jonathan-brunt"
-layout: people
+layout: person
 count: 1
 ---
 

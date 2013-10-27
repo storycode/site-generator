@@ -1,7 +1,7 @@
 ---
 title: Tom Sowa
 slug: "tom-sowa"
-layout: people
+layout: person
 count: 1
 ---
 

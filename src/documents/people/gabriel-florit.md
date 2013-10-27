@@ -1,7 +1,7 @@
 ---
 title: Gabriel Florit
 slug: "gabriel-florit"
-layout: people
+layout: person
 count: 1
 ---
 

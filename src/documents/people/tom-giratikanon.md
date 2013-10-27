@@ -1,7 +1,7 @@
 ---
 title: Tom Giratikanon
 slug: "tom-giratikanon"
-layout: people
+layout: person
 count: 1
 ---
 

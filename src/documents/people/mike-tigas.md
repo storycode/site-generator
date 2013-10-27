@@ -1,7 +1,7 @@
 ---
 title: Mike Tigas
 slug: "mike-tigas"
-layout: people
+layout: person
 count: 4
 ---
 
