@@ -1,6 +1,6 @@
 /* global _, console */
 var crypto = require('crypto');
-var fs = require('fs');
+var fs = require('graceful-fs');
 var yaml = require('js-yaml');
 var GoogleSpreadsheet = require("google-spreadsheet");
 var _ = require("underscore");
