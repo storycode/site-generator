@@ -6,7 +6,7 @@
     },
     "js": {
       "src": ["out/vendor/jquery.js", "out/vendor/log.js", "out/vendor/modernizr.js", "out/scripts/script.js"],
-      "dest": "out/scripts/josh.js"
+      "dest": "out/scripts/all.js"
     }
   },
   "min": {
