@@ -1,6 +1,8 @@
 ---
-count: 1
+title: Associated Press
 slug: "associated-press"
-name: Associated Press
+layout: organizations
+count: 1
 ---
 
+   

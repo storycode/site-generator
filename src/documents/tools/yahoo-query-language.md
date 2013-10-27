@@ -1,6 +1,8 @@
 ---
-count: 1
+title: "Yahoo! Query Language"
 slug: "yahoo-query-language"
-name: "Yahoo! Query Language"
+layout: tools
+count: 1
 ---
 
+   

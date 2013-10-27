@@ -64,9 +64,10 @@ sheet.getRows(1, function(err, row_data) {
 				var slug = _.str.slugify(v);
 				if (!projectMeta[metaCategory][slug]) {
 					projectMeta[metaCategory][slug] = {
-						count: 1,
+						title: v,
 						slug: slug,
-						name: v
+						layout: metaCategory,
+						count: 1
 					};
 				} else {
 					projectMeta[metaCategory][slug].count ++;
@@ -114,7 +115,8 @@ sheet.getRows(1, function(err, row_data) {
 		projects.push(meta);
 	});
 
-	// write out YAML files for docpad
+	
+	// Generate all YAML files
 	require('docpad').createInstance(docpadInstanceConfiguration, function(err, docpadInstance) {
 		if (err) {
 			return console.log(err.stack);
@@ -139,7 +141,6 @@ sheet.getRows(1, function(err, row_data) {
 			writeYaml(projectsPath + project.slug + '.md', yamlDoc);
 		});
 
-		// console.log(projectMeta);
 
 		// write out each meta category's files
 		_.each(projectMeta, function(value, key){
@@ -147,7 +148,7 @@ sheet.getRows(1, function(err, row_data) {
 			_.each(value, function(obj,slug){
 				var fileName = path + slug + '.md';
 				var yamlDoc = yaml.safeDump(obj);
-				yamlDoc = '---\n' + yamlDoc + '---\n\n';
+				yamlDoc = '---\n' + yamlDoc + '---\n\n   ';
 				writeYaml(fileName, yamlDoc);
 			});
 		});

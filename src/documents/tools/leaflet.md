@@ -1,6 +1,8 @@
 ---
-count: 1
+title: Leaflet
 slug: leaflet
-name: Leaflet
+layout: tools
+count: 1
 ---
 
+   

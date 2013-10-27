@@ -1,6 +1,8 @@
 ---
-count: 1
+title: JavaScript
 slug: javascript
-name: JavaScript
+layout: tools
+count: 1
 ---
 
+   

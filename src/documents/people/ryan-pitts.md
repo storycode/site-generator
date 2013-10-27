@@ -1,6 +1,8 @@
 ---
-count: 2
+title: Ryan Pitts
 slug: "ryan-pitts"
-name: Ryan Pitts
+layout: people
+count: 2
 ---
 
+   

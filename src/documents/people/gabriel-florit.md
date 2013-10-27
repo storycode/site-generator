@@ -1,6 +1,8 @@
 ---
-count: 1
+title: Gabriel Florit
 slug: "gabriel-florit"
-name: Gabriel Florit
+layout: people
+count: 1
 ---
 
+   

@@ -9,7 +9,13 @@ docpadConfig = {
 		blogPosts: ->
 			@getCollection("html").findAllLive({relativeOutDirPath: 'blog'})
 		projects: ->
-			@getCollection("html").findAllLive({relativeOutDirPath: 'projects'})
+			@getCollection("html").findAllLive({relativeOutDirPath: 'projects'}).
+				on "add", (model) ->
+					model.setMetaDefaults({layout:'projects'});
+		tools: ->
+			@getCollection("html").findAllLive({relativeOutDirPath: 'tools'}).
+				on "add", (model) ->
+					model.setMetaDefaults({layout:'tools'});
 
 	# =================================
 	# Template Data

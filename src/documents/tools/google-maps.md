@@ -1,6 +1,8 @@
 ---
-count: 2
+title: Google Maps
 slug: "google-maps"
-name: Google Maps
+layout: tools
+count: 2
 ---
 
+   

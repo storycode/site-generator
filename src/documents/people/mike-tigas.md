@@ -1,6 +1,8 @@
 ---
-count: 4
+title: Mike Tigas
 slug: "mike-tigas"
-name: Mike Tigas
+layout: people
+count: 4
 ---
 
+   

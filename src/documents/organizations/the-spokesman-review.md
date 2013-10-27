@@ -1,6 +1,8 @@
 ---
-count: 4
+title: "The Spokesman-Review"
 slug: "the-spokesman-review"
-name: "The Spokesman-Review"
+layout: organizations
+count: 4
 ---
 
+   

@@ -1,6 +1,8 @@
 ---
-count: 1
+title: CSS
 slug: css
-name: CSS
+layout: tools
+count: 1
 ---
 
+   
