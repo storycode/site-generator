@@ -1,4 +1,5 @@
 ---
 layout: "default"
 ---
+<p>category</p>
 <h1><%- @document.title %></h1>

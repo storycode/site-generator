@@ -3,7 +3,14 @@ layout: "default"
 ---
 <h1><%- @document.title %></h1>
 
+<%= @document %>
+
 <% for page in @getDocumentsForMetaCategory('people', 'mike-tigas').toJSON(): %>
 	<li>hi</li>
 <% end %>
 
+
+
+<% for page in @getCollection('josh').toJSON(): %>
+	<li><%- page.slug %></li>
+<% end %>

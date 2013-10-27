@@ -8,25 +8,19 @@ docpadConfig = {
 		blogPosts: ->
 			@getCollection("html").findAllLive({relativeOutDirPath: 'blog'})
 		projects: ->
-			@getCollection("html").findAllLive({relativeOutDirPath: 'projects'}).
-				on "add", (model) ->
-					model.setMetaDefaults({layout:'projects'});
+			@getCollection("html").findAllLive({relativeOutDirPath: 'projects'})
 		tools: ->
-			@getCollection("html").findAllLive({relativeOutDirPath: 'tools'}).
-				on "add", (model) ->
-					model.setMetaDefaults({layout:'tools'});
+			@getCollection("html").findAllLive({relativeOutDirPath: 'tools'})
 		organizations: ->
-			@getCollection("html").findAllLive({relativeOutDirPath: 'organizations'}).
-				on "add", (model) ->
-					model.setMetaDefaults({layout:'organizations'});
+			@getCollection("html").findAllLive({relativeOutDirPath: 'organizations'})
 		people: ->
-			@getCollection("html").findAllLive({relativeOutDirPath: 'people'}).
+			@getCollection("html").findAllLive({relativeOutDirPath: 'people'})
+		categories: (database) ->
+			database.findAllLive({relativeOutDirPath:'categories'}).
 				on "add", (model) ->
-					model.setMetaDefaults({layout:'people'});
-		categories: ->
-			@getCollection("html").findAllLive({relativeOutDirPath: 'categories'}).
-				on "add", (model) ->
-					model.setMetaDefaults({layout:'categories'});
+					model.setMetaDefaults({layout:'category'})
+		josh: (database) ->
+			database.findAllLive({relativeOutDirPath:'projects'}, [filename:1])
 
 	# =================================
 	# Template Data

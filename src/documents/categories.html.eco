@@ -1,0 +1,17 @@
+---
+title: "Categories"
+layout: "default"
+inNav: true
+---
+
+<p>Categories</p>
+
+<ul>
+<% for page in @getCollection("categories").toJSON(): %>
+	<li>
+		<a href="<%= page.url %>">
+			<%= page.title %>
+		</a>
+	</li>
+<% end %>
+</ul>

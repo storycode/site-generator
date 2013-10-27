@@ -1,0 +1,17 @@
+---
+title: "Tools"
+layout: "default"
+inNav: true
+---
+
+<p>Organizations</p>
+
+<ul>
+<% for page in @getCollection("tools").toJSON(): %>
+	<li>
+		<a href="<%= page.url %>">
+			<%= page.title %>
+		</a>
+	</li>
+<% end %>
+</ul>
