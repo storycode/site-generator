@@ -11,7 +11,8 @@ tools: ""
 publishedDate: "2011"
 slug: "the-spokesman-review-census-2010-washington"
 country: United States
-signature: 1db5923fe3f2ed51f9c3ec75a4d6ed33
+industry: News
+signature: dd02bae57f80e2cc6663f5cd2c94f9f6
 layout: project
 ---
 

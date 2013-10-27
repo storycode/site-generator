@@ -11,7 +11,8 @@ tools: ""
 publishedDate: 5/1/2011
 slug: "the-spokesman-review-million-dollar-homes"
 country: United States
-signature: 7cb16746e80828d8dc5b2fd0ed0d08bc
+industry: News
+signature: ce25b4d30df7bfcf263179e22eebe171
 layout: project
 ---
 

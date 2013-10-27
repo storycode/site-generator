@@ -10,7 +10,8 @@ tools: ""
 publishedDate: "2013"
 slug: "associated-press-the-113th-congress"
 country: United States
-signature: 727e8cbf9066bc6d829a37ac80e2fc5d
+industry: News
+signature: 34c8b6f2fd29da07abec5841290d232b
 layout: project
 ---
 

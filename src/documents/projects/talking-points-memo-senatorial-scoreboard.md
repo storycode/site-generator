@@ -11,7 +11,8 @@ tools: ""
 publishedDate: 9/28/2012
 slug: "talking-points-memo-senatorial-scoreboard"
 country: United States
-signature: 2c90803b1190b92fc8271e750c11dbc9
+industry: News
+signature: dd567be12d6749b1f899ca1fe980b0d4
 layout: project
 ---
 

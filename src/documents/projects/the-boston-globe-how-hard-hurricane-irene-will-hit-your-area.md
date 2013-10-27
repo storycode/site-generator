@@ -15,7 +15,8 @@ tools:
 publishedDate: ""
 slug: "the-boston-globe-how-hard-hurricane-irene-will-hit-your-area"
 country: United States
-signature: c3a6a322276b5bab1410aa8e774dd34b
+industry: News
+signature: 206b9a855cd572c00d1da776c934ef9c
 layout: project
 ---
 

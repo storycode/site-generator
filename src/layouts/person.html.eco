@@ -2,3 +2,8 @@
 layout: "default"
 ---
 <h1><%- @document.title %></h1>
+
+<% for page in @getDocumentsForMetaCategory('people', 'mike-tigas').toJSON(): %>
+	<li>hi</li>
+<% end %>
+

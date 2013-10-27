@@ -12,7 +12,8 @@ tools: ""
 publishedDate: 9/6/2012
 slug: "the-boston-globe-clinton-ad-libbed-much-of-speech"
 country: United States
-signature: 6e2a1e2bad065e158b5f6cb557959102
+industry: News
+signature: d6d2c90bbccc76f78563782226b69373
 layout: project
 ---
 

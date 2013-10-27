@@ -3,38 +3,24 @@ layout: "default"
 ---
 <h1><%- @document.title %></h1>
 
-
 <h5>Organization</h5>
 <ul>
-	<% for v in @document.organizations: %>
-		<li>
-			<a href="#">
-				<%= v %>
-			</a>
-		</li>
+	<% for value in @document.organizations: %>
+		<li><a href="<%= @getMetaCategoryUrl('organizations', @slugify(value)) %>"><%= value %></a></li>
 	<% end %>
 </ul>
 
-
 <h5>People</h5>
 <ul>
-	<% for v in @document.people: %>
-		<li>
-			<a href="#">
-				<%= v %>
-			</a>
-		</li>
+	<% for value in @document.people: %>
+		<li><a href="<%= @getMetaCategoryUrl('people', @slugify(value)) %>"><%= value %></a></li>
 	<% end %>
 </ul>
 
 <h5>Tools</h5>
 <ul>
-	<% for v in @document.tools: %>
-		<li>
-			<a href="#">
-				<%= v %>
-			</a>
-		</li>
+	<% for value in @document.tools: %>
+		<li><a href="<%= @getMetaCategoryUrl('tools', @slugify(value)) %>"><%= value %></a></li>
 	<% end %>
 </ul>
 

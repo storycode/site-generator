@@ -1,5 +1,4 @@
 # The DocPad Configuration File
-# It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
 	
 	# =================================
@@ -57,28 +56,60 @@ docpadConfig = {
 				Story Code, StoryCode, multimedia, design, storytelling, journalism, immersive, web developement
 				"""
 
-			metaCategories: {
-				"people":{
-					"slug": "person",
-					"singular": "person",
-					"plural": "people"
-				},
-				"tools":{
-					"slug": "tool",
-					"singular": "tool",
-					"plural": "tools"
-				},
-				"organizations":{
-					"slug": "organization",
-					"singular": "organization",
-					"plural": "organizations"
-				},
-				"categories":{
-					"slug": "category",
-					"singular": "category",
-					"plural": "categories"
-				}
+		metaCategories: {
+			"people":{
+				"slug": "people",
+				"singular": "person",
+				"plural": "people"
+			},
+			"tools":{
+				"slug": "tools",
+				"singular": "tool",
+				"plural": "tools"
+			},
+			"organizations":{
+				"slug": "organizations",
+				"singular": "organization",
+				"plural": "organizations"
+			},
+			"categories":{
+				"slug": "categories",
+				"singular": "category",
+				"plural": "categories"
 			}
+		}
+
+		slugify: (string) ->
+			_ = require("underscore")
+			_.str = require('underscore.string')
+			return _.str.slugify(string);
+
+		getMetaCategoryUrl: (categorySlug, itemSlug) ->
+			return '/' + categorySlug + '/' + itemSlug
+
+		getMetaCategoryMeta: (categorySlug) ->
+			return @metaCategories[categorySlug]
+
+		# todo
+		getDocumentsForMetaCategory: (categorySlug, itemSlug) ->
+			qObject = {}
+			qObject[categorySlug] = '$has: '+itemSlug;
+			return @getCollection('documents').findAll(qObject)
+
+		# -----------------------------
+		# Expanded category info. 
+		# TODO, still. 
+		# see: http://stackoverflow.com/questions/14353716/how-to-query-documents-in-docpad-based-on-arrays-of-objects
+		# specifically: 'Via Template Helpers and a global categories listing'
+		
+		getDocumentsForCategory: (categoryId) ->
+			return @getCollection('documents').findAll(categories: $has: categoryId)
+
+		getCategoriesForDocument: (document) ->
+			document ?= @getDocument()
+			categoryIds = document.get('categories')
+			categories = @categories[categoryId]  for categoryId in categoryIds
+			return categories
 
 		# -----------------------------
 		# Helper Functions

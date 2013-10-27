@@ -11,7 +11,8 @@ tools: ""
 publishedDate: "2011"
 slug: "the-spokesman-review-census-2010-idaho"
 country: United States
-signature: b709be9a2674dcec1702b01b4022016f
+industry: News
+signature: d8c2c786dee5e9d54b0fa9ce0e28e945
 layout: project
 ---
 

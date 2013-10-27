@@ -23,7 +23,7 @@ sheet.getRows(1, function(err, row_data) {
 		}
 
 		var config = docpadInstance.config;
-		var metaCategories = config.templateData.site.metaCategories;
+		var metaCategories = config.templateData.metaCategories;
 
 		// track related project meta (metaCategories). these turn into top-level sections.
 		// projectMeta.[tools, organizations, people].josh-williams = {
@@ -68,7 +68,7 @@ sheet.getRows(1, function(err, row_data) {
 						projectMeta[metaCategory][slug] = {
 							title: v,
 							slug: slug,
-							layout: metaCategories[metaCategory].slug,
+							layout: metaCategories[metaCategory].singular,
 							count: 1
 						};
 					} else {
@@ -102,7 +102,8 @@ sheet.getRows(1, function(err, row_data) {
 				tools: listMaker(project.toolsused),
 				publishedDate: project.published,
 				slug: _.str.slugify( _.str.prune(project.org.trim() + ' ' + project.project.trim(), 70) ), // contact org + project title, limit to 70 chars and slugify
-				country: "United States",
+				country: "United States", // TODO
+				industry: "News",
 				text: project.notes.trim()
 			};
 
