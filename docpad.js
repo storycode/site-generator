@@ -37,26 +37,32 @@ docpadConfig = {
         relativeOutDirPath: 'people'
       });
     },
-    
-    categories: function(database) {
-      return database.findAllLive({
+
+    categories: function() {
+      return this.getCollection("html").findAllLive({
         relativeOutDirPath: 'categories'
-      }).on("add", function(model) {
-        return model.setMetaDefaults({
-          layout: 'category'
-        });
       });
     },
     
-    josh: function(database) {
-      return database.findAllLive({
-        relativeOutDirPath: 'projects'
-      }, [
-        {
-          filename: 1
-        }
-      ]);
-    }
+    // categories: function(database) {
+    //   return database.findAllLive({
+    //     relativeOutDirPath: 'categories'
+    //   }).on("add", function(model) {
+    //     return model.setMetaDefaults({
+    //       layout: 'category'
+    //     });
+    //   });
+    // },
+    
+    // josh: function(database) {
+    //   return database.findAllLive({
+    //     relativeOutDirPath: 'projects'
+    //   }, [
+    //     {
+    //       filename: 1
+    //     }
+    //   ]);
+    // }
   },
 
   /**
