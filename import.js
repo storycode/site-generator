@@ -140,7 +140,7 @@ sheet.getRows(1, function(err, row_data) {
 			yamlDoc = '---\n' + yamlDoc + '---\n\n' + project.text;
 
 			// add to docpad project
-			writeYaml(projectsPath + project.slug + '.md', yamlDoc);
+			writeYaml(projectsPath + project.slug + '.html', yamlDoc);
 		});
 
 
@@ -148,7 +148,7 @@ sheet.getRows(1, function(err, row_data) {
 		_.each(projectMeta, function(value, key){
 			var path = documentPath + key + '/';
 			_.each(value, function(obj,slug){
-				var fileName = path + slug + '.md';
+				var fileName = path + slug + '.html';
 				var yamlDoc = yaml.safeDump(obj);
 				yamlDoc = '---\n' + yamlDoc + '---\n\n   ';
 				writeYaml(fileName, yamlDoc);
