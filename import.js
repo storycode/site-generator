@@ -98,6 +98,11 @@ sheet.getRows(1, function(err, row_data) {
 		};
 
 
+		// TODO - wrapper around write json, to put files
+		// in documents/api/metacategory/slug.json
+		var writeAPI = function(){};
+
+
 		// collect meta info on each project
 		var projects = [];
 		row_data.forEach(function(project) {
