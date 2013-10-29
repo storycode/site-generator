@@ -88,6 +88,15 @@ sheet.getRows(1, function(err, row_data) {
 			});
 		};
 
+		var writeJSON = function(path, jsonObject){
+			fs.writeFile(path, JSON.stringify(jsonObject, null, '\t'), function(err) {
+				if (err) {
+					return console.log(err.stack);
+				}
+				// console.log('wrote: ' + path);
+			});
+		};
+
 
 		// collect meta info on each project
 		var projects = [];
@@ -124,15 +133,14 @@ sheet.getRows(1, function(err, row_data) {
 
 		// TODO ? -- make sure project doesn't exist and hasn't changedc
 
-		// Generate all project YAML files
+		// Generate all project YAML and data files for use in docpad and other scripts
 		var documentPath = docpadInstance.config.srcPath + '/documents/';
 		var projectsPath = documentPath + 'projects/';
+		var dataPath = docpadInstance.config.rootPath + '/data/';
 		
-
 		projects.forEach(function(project) {
 
 			// convert project data, minus text field, into YAML block
-			// var yamlDoc = yaml.stringify( _.omit(project,['text']) );
 			var yamlDoc = yaml.safeDump(_.omit(project,['text']));
 
 			// Add text field below YAML header.
@@ -141,20 +149,28 @@ sheet.getRows(1, function(err, row_data) {
 
 			// add to docpad project
 			writeYaml(projectsPath + project.slug + '.html', yamlDoc);
+
+			// write json file
+			writeJSON(dataPath + project.slug + '.json', project);
 		});
 
 
-		// write out each meta category's YAML files
+		// write out each meta category's YAML and json files
 		_.each(projectMeta, function(value, key){
-			var path = documentPath + key + '/';
+			var docPath = documentPath + key + '/';
 			_.each(value, function(obj,slug){
-				var fileName = path + slug + '.html';
+
 				var yamlDoc = yaml.safeDump(obj);
 				yamlDoc = '---\n' + yamlDoc + '---\n\n   ';
-				writeYaml(fileName, yamlDoc);
+				writeYaml(docPath + slug + '.html', yamlDoc);
+
+				// write json file
+				writeJSON(dataPath + slug + '.json', obj);
 			});
 		});
 
+		// write out all project meta for use in other scrips
+		writeJSON(dataPath+'projects.json', projects);
 	});
 
 });

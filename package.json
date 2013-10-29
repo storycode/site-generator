@@ -44,7 +44,8 @@
     "grunt-css": "~0.3.2",
     "bal-util": "~1.15.3",
     "underscore": "~1.4.3",
-    "docpad-plugin-cleanurls": "~2.5.1"
+    "docpad-plugin-cleanurls": "~2.5.1",
+    "webshot": "~0.7.0"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x",
