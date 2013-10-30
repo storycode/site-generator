@@ -123,6 +123,12 @@ sheet.getRows(1, function(err, row_data) {
 			});
 		};
 
+
+		/**
+		 * Write JSON file to disk
+		 * @param  {String} path    full path
+		 * @param  {Object}
+		 */
 		var writeJSON = function(path, jsonObject){
 			fs.writeFile(path, JSON.stringify(jsonObject, null, '\t'), function(err) {
 				if (err) {
@@ -131,8 +137,6 @@ sheet.getRows(1, function(err, row_data) {
 			});
 		};
 
-
-		// TODO - 
 		
 		/**
 		 * wrapper around write json, to put filee
@@ -146,7 +150,6 @@ sheet.getRows(1, function(err, row_data) {
 		};
 
 
-		// 
 		// collect meta info on each project
 		var projects = [];
 		row_data.forEach(function(project) {
@@ -180,8 +183,6 @@ sheet.getRows(1, function(err, row_data) {
 
 		
 		// Generate all project YAML and data files for use in docpad and other scripts
-
-		
 		projects.forEach(function(project) {
 
 			// convert project data, minus text field, into YAML block
